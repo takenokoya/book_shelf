@@ -14,4 +14,6 @@
   <hr>
   <h4><%= t ".description" %></h4>
   <%= simple_format @book.description %>
+  <%= link_to t(".edit"), edit_book_path(@book), class: "btn btn-primary" %>
+  <%= link_to t(".return"), books_path, class: "btn btn-secondary" %>
 </div>
