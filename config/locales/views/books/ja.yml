@@ -4,10 +4,13 @@ ja:
       title: 書籍登録
     edit:
       title: 書籍更新
+    form:
+      include_blank: カテゴリーを選択してください
     show:
       price: 価格
       price_yen: "¥%{price}"
       publish_date: 発売日
+      category: カテゴリー
       description: 商品の説明
       edit: 編集
       return: 戻る
@@ -18,4 +21,3 @@ ja:
       cancel: キャンセル
     index:
       price_yen: "¥%{price}"
-      

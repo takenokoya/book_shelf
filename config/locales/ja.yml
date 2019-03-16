@@ -3,6 +3,7 @@ ja:
   activerecord:
     models:
       book: 書籍情報
+      user: ユーザー
     attributes:
       book:
         title: タイトル
@@ -11,6 +12,16 @@ ja:
         description: 詳細
         new_image: 画像
         image: 画像
+        category_id: カテゴリー
+        category: カテゴリー
+      user:
+        email: メールアドレス
+        nick_name: ニックネーム
+        avatar: プロフィール画像
+        password: パスワード
+        password_confirmation: パスワード再入力
+        current_password: 現在のパスワード
+        remember_me: ログイン情報を記録する
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
