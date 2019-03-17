@@ -1,8 +1,11 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:edit, :update, :destroy]
   
   def index
-    @books = Book.page(params[:page]).per(4)
+    # @books = Book.page(params[:page]).per(4)
+    # @books = Book.with_attached_image.page(params[:page]).per(4) # N+1問題対策
+    # @books = Book.with_attached_image.page(params[:page]).per(4).order(publish_date: :desc) # orderメソッド追加
+    @books = Book.with_attached_image.find_newest_books(params[:page]) #リファクタリング。bookモデルとセット
   end
   
   def new
@@ -19,6 +22,8 @@ class BooksController < ApplicationController
   end
 
   def show
+    # @book = Book.with_attached_image.includes(reviews: :user).find(params[:id]) #アソシエーションでhas_many throughオプションを書かない場合
+    @book = Book.with_attached_image.includes(:reviews, :users).find(params[:id])
   end
 
   def edit
