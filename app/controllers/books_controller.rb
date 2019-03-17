@@ -5,7 +5,8 @@ class BooksController < ApplicationController
     # @books = Book.page(params[:page]).per(4)
     # @books = Book.with_attached_image.page(params[:page]).per(4) # N+1問題対策
     # @books = Book.with_attached_image.page(params[:page]).per(4).order(publish_date: :desc) # orderメソッド追加
-    @books = Book.with_attached_image.find_newest_books(params[:page]) #リファクタリング。bookモデルとセット
+    # @books = Book.with_attached_image.find_newest_books(params[:page]) #リファクタリング。bookモデルとセット
+    # ransak用にApplicationコントローラ側に記述したので削除
   end
   
   def new

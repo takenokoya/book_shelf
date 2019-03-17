@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_search
+
+  def set_search #ransak 検索窓はheaderなのでApplicationコントローラに書いている
+    @q = Book.ransack(params[:q])
+    @books = @q.result.with_attached_image.find_newest_books(params[:page])
+  end
 
   protected
 
